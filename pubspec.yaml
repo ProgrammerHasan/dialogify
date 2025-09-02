@@ -22,8 +22,8 @@ topics:
   - animation-dialog
 
 screenshots:
-  - description: "Dialogs"
-    path: screenshots/01.png
+  - description: "Dialogs with gradient background"
+    path: screenshots/001.png
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
