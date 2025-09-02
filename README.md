@@ -9,6 +9,10 @@
   <img src="https://github.com/programmerhasan/dialogify/raw/master/screenshots/02.png" alt="Dialogify for Flutter" width="120" style="border-radius: 50%;" />
 </p>
 
+<p align="center">
+  <img src="https://github.com/programmerhasan/dialogify/raw/master/screenshots/03.png" alt="Dialogify for Flutter" width="120" style="border-radius: 50%;" />
+</p>
+
 
 ---
 
