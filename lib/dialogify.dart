@@ -2,26 +2,27 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 enum DialogType { info, confirmation }
+
 enum DialogPosition { center, bottom }
 
 Future<void> showConfirmationDialog(
-    BuildContext context, {
-      String? title,
-      String? subtitle,
-      String? confirmText,
-      String? cancelText,
-      VoidCallback? onConfirm,
-      VoidCallback? onCancel,
-      DialogPosition position = DialogPosition.bottom,
-      Widget? content,
-      BoxDecoration? decoration,
-      TextStyle? titleStyle,
-      TextStyle? subtitleStyle,
-      double? contentPadding,
-      bool? divider,
-      Color? dividerColor,
-      List<Color>? gradientColors,
-    }) {
+  BuildContext context, {
+  String? title,
+  String? subtitle,
+  String? confirmText,
+  String? cancelText,
+  VoidCallback? onConfirm,
+  VoidCallback? onCancel,
+  DialogPosition position = DialogPosition.bottom,
+  Widget? content,
+  BoxDecoration? decoration,
+  TextStyle? titleStyle,
+  TextStyle? subtitleStyle,
+  double? contentPadding,
+  bool? divider,
+  Color? dividerColor,
+  List<Color>? gradientColors,
+}) {
   if (position == DialogPosition.bottom) {
     return showModalBottomSheet(
       context: context,
@@ -92,21 +93,21 @@ Future<void> showConfirmationDialog(
 }
 
 Future<void> showInfoDialog(
-    BuildContext context, {
-      String? title,
-      String? subtitle,
-      String? closeText,
-      VoidCallback? onClose,
-      DialogPosition position = DialogPosition.center,
-      Widget? content,
-      BoxDecoration? decoration,
-      TextStyle? titleStyle,
-      TextStyle? subtitleStyle,
-      double? contentPadding,
-      bool? divider,
-      Color? dividerColor,
-      List<Color>? gradientColors,
-    }) {
+  BuildContext context, {
+  String? title,
+  String? subtitle,
+  String? closeText,
+  VoidCallback? onClose,
+  DialogPosition position = DialogPosition.center,
+  Widget? content,
+  BoxDecoration? decoration,
+  TextStyle? titleStyle,
+  TextStyle? subtitleStyle,
+  double? contentPadding,
+  bool? divider,
+  Color? dividerColor,
+  List<Color>? gradientColors,
+}) {
   if (position == DialogPosition.bottom) {
     return showModalBottomSheet(
       context: context,
@@ -221,61 +222,70 @@ class _BaseDialog extends StatelessWidget {
       filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
       child: Container(
         width: double.infinity,
-        padding: (contentPadding != null) ? EdgeInsets.all(contentPadding!).copyWith(bottom: 12) : const EdgeInsets.fromLTRB(16, 16, 16, 10),
-        decoration: decoration ?? BoxDecoration(
-          gradient: LinearGradient(
-            colors: gradientColors ?? [
-              Color(0xFF09B65F),
-              Color(0xFF22A183),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(12),
-          border: position == DialogPosition.center ? Border.all(
-            color: Color(0xFF139A74),
-            width: 2,
-          ) : null,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.15),
-              blurRadius: 30,
-              offset: const Offset(0, 10),
+        padding: (contentPadding != null)
+            ? EdgeInsets.all(contentPadding!).copyWith(bottom: 12)
+            : const EdgeInsets.fromLTRB(16, 16, 16, 10),
+        decoration: decoration ??
+            BoxDecoration(
+              gradient: LinearGradient(
+                colors: gradientColors ??
+                    [
+                      Color(0xFF09B65F),
+                      Color(0xFF22A183),
+                    ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(12),
+              border: position == DialogPosition.center
+                  ? Border.all(
+                      color: Color(0xFF139A74),
+                      width: 2,
+                    )
+                  : null,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.15),
+                  blurRadius: 30,
+                  offset: const Offset(0, 10),
+                ),
+              ],
             ),
-          ],
-        ),
         child: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if(content == null) ... [
+              if (content == null) ...[
                 Text(
                   title ?? "Are you sure?",
-                  style: titleStyle ?? theme.textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
+                  style: titleStyle ??
+                      theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8),
                 Text(
                   subtitle ?? "Please confirm this action.",
-                  style: subtitleStyle ?? TextStyle(
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white.withValues(alpha: 0.9),
-                  ),
+                  style: subtitleStyle ??
+                      TextStyle(
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white.withValues(alpha: 0.9),
+                      ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 14),
-              ] else content ?? const SizedBox.shrink(),
-              if(divider) ... [
+              ] else
+                content ?? const SizedBox.shrink(),
+              if (divider) ...[
                 Divider(color: dividerColor ?? Colors.white12, height: 1),
                 SizedBox(height: 6),
               ],
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if(type == DialogType.info) ... [
+                  if (type == DialogType.info) ...[
                     FilledButton.icon(
                       onPressed: () {
                         Navigator.of(context).pop();
@@ -287,14 +297,15 @@ class _BaseDialog extends StatelessWidget {
                           borderRadius: BorderRadius.circular(36),
                         ),
                         foregroundColor: Colors.white70,
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 0),
                         visualDensity: VisualDensity.comfortable,
                       ),
                       icon: const Icon(Icons.close_rounded, size: 18),
                       label: Text(closeText ?? "Close"),
                     ),
                   ],
-                  if(type == DialogType.confirmation) ... [
+                  if (type == DialogType.confirmation) ...[
                     FilledButton.icon(
                       onPressed: () {
                         Navigator.of(context).pop();
@@ -306,9 +317,9 @@ class _BaseDialog extends StatelessWidget {
                             borderRadius: BorderRadius.circular(36),
                           ),
                           foregroundColor: Colors.white70,
-                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-                          visualDensity: VisualDensity.comfortable
-                      ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 0),
+                          visualDensity: VisualDensity.comfortable),
                       icon: const Icon(Icons.close_rounded, size: 18),
                       label: Text(cancelText ?? "Cancel"),
                     ),
@@ -324,9 +335,9 @@ class _BaseDialog extends StatelessWidget {
                             borderRadius: BorderRadius.circular(36),
                           ),
                           foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-                          visualDensity: VisualDensity.comfortable
-                      ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 0),
+                          visualDensity: VisualDensity.comfortable),
                       icon: const Icon(Icons.check_circle_rounded, size: 18),
                       label: Text(confirmText ?? "Yes, Confirm"),
                     ),
