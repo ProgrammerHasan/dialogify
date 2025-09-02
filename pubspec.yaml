@@ -1,0 +1,39 @@
+name: dialogify
+description: A customizable Flutter package to show animated confirmation and info dialogs with gradient backgrounds, blur, and bottom sheet or center position.
+version: 1.0.0
+homepage: https://github.com/programmerhasan/dialogify
+repository: https://github.com/programmerhasan/dialogify
+issue_tracker: https://github.com/programmerhasan/dialogify/issues
+documentation: https://pub.dev/packages/dialogify
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+topics:
+  - flutter
+  - dialogs
+  - confirmation-dialog
+  - info-dialog
+  - animation-dialog
+
+screenshots:
+  - description: "Dialogs"
+    path: screenshots/01.png
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
