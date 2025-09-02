@@ -1,4 +1,4 @@
-## 1.0.1
+## 1.0.0
 - Initial release 🎉
 - Confirmation & information dialogs with modern UI
 - Supports both **center dialog** & **bottom sheet style**
