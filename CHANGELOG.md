@@ -1,6 +1,11 @@
-## 1.0.2
+## 1.0.1
 - Initial release 🎉
-- Normal loading overlay with blur effect
-- Customizable `CircularProgressIndicator`
-- Progress loader with percentage display
-- Easy to show and dismiss
+- Confirmation & information dialogs with modern UI
+- Supports both **center dialog** & **bottom sheet style**
+- Gradient background with optional custom decoration
+- Title, subtitle, and custom widget content support
+- Action buttons: Confirm, Cancel, Close
+- Divider option with customizable color
+- Smooth scale & fade-in animation for dialogs
+- SafeArea support for better device compatibility
+- Easy API: `showInfoDialog` & `showConfirmationDialog`
